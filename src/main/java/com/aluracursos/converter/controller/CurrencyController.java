@@ -9,12 +9,11 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Scanner;
 
 public class CurrencyController {
-    private String APIkey = "650b3f9aab1efc30dc526c96";
-    private String[] currencyCodes = {
+    private final String[] currencyCodes = {
             "USD", "COP", "BWP", "BYN", "BZD", "CAD", "CDF", "PEN",
             "ARS", "EUR", "BRL", "MXN", "CNY", "JPY"};
-    private int currenciesQuantity = currencyCodes.length;
-    private Gson gson = new Gson();
+    private final int currenciesQuantity = currencyCodes.length;
+    private final Gson gson = new Gson();
     LookAndFeel lf = new LookAndFeel();
 
     public void initialize() {
@@ -59,21 +58,22 @@ public class CurrencyController {
     @NotNull
     private ConversionRequest getConversionRequest() {
         InputHandler inputHandler = new InputHandler();
-        int sourceCurrency = inputHandler.Numero(
+        int sourceCurrency = inputHandler.Number(
                 lf.cyan("Enter the number of the currency you want to convert: "),
                 lf.red("Invalid option!"),
                 currenciesQuantity);
-        int targetCurrency = inputHandler.Numero(
+        int targetCurrency = inputHandler.Number(
                 lf.cyan("Enter the number of the currency you want to convert to: "),
                 lf.red("Invalid option!"),
                 currenciesQuantity);
-        int amount = inputHandler.Numero(
+        int amount = inputHandler.Number(
                 lf.cyan("Enter the amount you want to convert: "),
                 lf.red("Invalid option!"),
                 0);
 
         String sourceCurrencyCode = currencyCodes[sourceCurrency - 1];
         String targetCurrencyCode = currencyCodes[targetCurrency - 1];
+        String APIkey = "650b3f9aab1efc30dc526c96";
         String uriConversion =
                 "https://v6.exchangerate-api.com/v6/"
                         + APIkey

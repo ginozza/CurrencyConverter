@@ -4,11 +4,11 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class InputHandler {
-    private int valueInput;
     LookAndFeel lf = new LookAndFeel();
 
-    public int Numero(String inputMessage, String errorMessage, int option) {
+    public int Number(String inputMessage, String errorMessage, int option) {
         Scanner scanner = new Scanner(System.in);
+        int valueInput;
 
         while (true) {
             System.out.println(lf.blue(inputMessage));
