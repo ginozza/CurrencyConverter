@@ -73,7 +73,7 @@ public class CurrencyController {
 
         String sourceCurrencyCode = currencyCodes[sourceCurrency - 1];
         String targetCurrencyCode = currencyCodes[targetCurrency - 1];
-        String APIkey = "650b3f9aab1efc30dc526c96";
+        String APIkey = System.getenv("CC_API_KEY");
         String uriConversion =
                 "https://v6.exchangerate-api.com/v6/"
                         + APIkey
